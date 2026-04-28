@@ -35,12 +35,12 @@ You can interact with the dashboard to:
 The network consists of 8 nodes with the following properties:
 - **Node 1** 🍄: *Time*: 5, *Power*: 5 (Start)
 - **Node 2** 🐫: *Time*: 7, *Power*: 5
-- **Node 3** ☁️: *Time*: 8, *Power*: 4
-- **Node 4** 👨: *Time*: 4, *Power*: 6
+- **Node 3** ☁️: *Time*: 9, *Power*: 10
+- **Node 4** ❄️: *Time*: 4, *Power*: 4
 - **Node 5** 🌲: *Time*: 6, *Power*: 8
-- **Node 6** 🌸: *Time*: 8, *Power*: 6
-- **Node 7** 🐟: *Time*: 7, *Power*: 6
-- **Node 8** 🚧: *Time*: 10, *Power*: 2 (End)
+- **Node 6** 🌸: *Time*: 9, *Power*: 9
+- **Node 7** 🐟: *Time*: 4, *Power*: 5
+- **Node 8** 🔥: *Time*: 10, *Power*: 2 (End)
 
 ### Algorithm and Optimization
 
