@@ -4,7 +4,7 @@
 
 An interactive dashboard for visualizing and optimizing paths through a directed acyclic graph (DAG) where the optimization is based on node values rather than edge costs. This tool finds all possible paths from Node 1 to Node 8 using depth-first search with memoization, identifies Pareto-optimal paths based on *Power* and *Time* metrics, and provides an interactive slider to explore different path preferences.
 
-[**Link to deployed website**(https://mariethcoetzer.github.io/Network-Optimizing-with-Node-Based-Values/)]
+[**Link to deployed website**](https://mariethcoetzer.github.io/Network-Optimizing-with-Node-Based-Values/)
 
 For detailed explanations of the path-finding algorithm and Pareto optimization approach, see the corresponding blog posts:
 - [Network Optimizing with Node-Based Values – Memoization](Placeholder for link)
