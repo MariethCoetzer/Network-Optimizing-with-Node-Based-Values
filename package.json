@@ -1,0 +1,19 @@
+{
+  "name": "network-path-optimizer",
+  "version": "1.0.0",
+  "description": "Interactive dashboard for visualizing and optimizing paths through a directed acyclic graph",
+  "main": "index.html",
+  "scripts": {
+    "start": "open index.html"
+  },
+  "keywords": [
+    "graph",
+    "dag",
+    "pathfinding",
+    "pareto",
+    "optimization",
+    "visualization"
+  ],
+  "author": "",
+  "license": "MIT"
+}
