@@ -323,52 +323,38 @@
         function findAllPaths(start, end, adjacencyList) {
             // Memoization cache: stores all paths from each node to the end
             const memo = new Map();
-
-            function backtrack(node, visited) {
+            
+            function dfs(node) {
                 // Base case: reached the destination
                 if (node === end) {
                     return [[end]];
                 }
-
-                // Create a cache key from current node and visited set
-                const visitedKey = Array.from(visited).sort().join(',');
-                const cacheKey = `${node}:${visitedKey}`;
-
-                // Check if we've already computed paths from this state
-                if (memo.has(cacheKey)) {
-                    return memo.get(cacheKey);
+                
+                // Check if we've already computed paths from this node
+                if (memo.has(node)) {
+                    return memo.get(node);
                 }
-
+                
                 const allPaths = [];
                 const neighbors = adjacencyList[node] || [];
-
-                // Explore each unvisited neighbor
+                
+                // Explore each neighbor
                 for (const neighbor of neighbors) {
-                    if (!visited.has(neighbor)) {
-                        // Mark as visited
-                        visited.add(neighbor);
-
-                        // Recursively find all paths from neighbor to end
-                        const pathsFromNeighbor = backtrack(neighbor, visited);
-
-                        // Prepend current node to each path found
-                        for (const path of pathsFromNeighbor) {
-                            allPaths.push([node, ...path]);
-                        }
-
-                        // Backtrack: unmark neighbor
-                        visited.delete(neighbor);
+                    // Recursively find all paths from neighbor to end
+                    const pathsFromNeighbor = dfs(neighbor);
+                    
+                    // Prepend current node to each path found
+                    for (const path of pathsFromNeighbor) {
+                        allPaths.push([node, ...path]);
                     }
                 }
-
+                
                 // Store in cache before returning
-                memo.set(cacheKey, allPaths);
+                memo.set(node, allPaths);
                 return allPaths;
             }
-
-            // Start backtracking with initial visited set containing only start node
-            const visited = new Set([start]);
-            return backtrack(start, visited);
+            
+            return dfs(start);
         }
 
         // Calculate path metrics
