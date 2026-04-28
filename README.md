@@ -8,7 +8,7 @@ An interactive dashboard for visualizing and optimizing paths through a directed
 
 For detailed explanations of the path-finding algorithm and Pareto optimization approach, see the corresponding blog posts:
 - [Network Optimizing with Node-Based Values – Memoization](https://mariethcoetzer.com/blog/network-optimizing-with-node-based-values-memoization/)
-- [Network Optimizing with Node-Based Values – Pareto Optimization](Placeholder for link)
+- [Network Optimizing with Node-Based Values – Pareto Optimization](https://mariethcoetzer.com/blog/network-optimizing-with-node-based-values-pareto-optimization/)
 
 ## Features
 
