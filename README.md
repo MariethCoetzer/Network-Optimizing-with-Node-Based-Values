@@ -1,92 +1,59 @@
 # Network Path Optimizer
 
-An interactive dashboard for visualizing and optimizing paths through a directed acyclic graph (DAG). This tool finds all possible paths from Node 1 to Node 8, identifies Pareto-optimal paths based on power and time metrics, and provides an interactive slider to explore different path preferences.
+**Disclaimer:** This README and all the code in this repository were written by Claude, with the GitHub author overseeing the process.
+
+An interactive dashboard for visualizing and optimizing paths through a directed acyclic graph (DAG) where the optimization is based on node values rather than edge costs. This tool finds all possible paths from Node 1 to Node 8 using depth-first search with memoization, identifies Pareto-optimal paths based on *Power* and *Time* metrics, and provides an interactive slider to explore different path preferences.
+
+**Link to deployed website:** [[Placeholder](https://mariethcoetzer.github.io/Network-Optimizing-with-Node-Based-Values/)]
+
+For detailed explanations of the path-finding algorithm and Pareto optimization approach, see the corresponding blog posts:
+- [Network Optimizing with Node-Based Values – Memoization](Placeholder for link)
+- [Network Optimizing with Node-Based Values – Pareto Optimization](Placeholder for link)
 
 ## Features
 
-- **Path Finding**: Uses depth-first search (DFS) to find all valid paths through the network
-- **Pareto Optimization**: Identifies Pareto-optimal paths that maximize power and minimize time
+- **Memoized Path Finding**: Uses depth-first search (DFS) with memoization to efficiently find all valid paths through the network
+- **Pareto Optimization**: Identifies Pareto-optimal paths that maximize *Power* while minimizing *Time*
 - **Interactive Visualization**: 
-  - Network diagram showing nodes and connections
-  - Pareto chart displaying all paths with optimal paths highlighted
-  - Slider to adjust preference between maximum power and minimum time
-- **Dynamic Path Highlighting**: Selected paths are highlighted in both visualizations with darker colors
+  - Network diagram showing nodes and their connections
+  - Pareto frontier chart displaying all paths, with Pareto-optimal paths highlighted
+  - Slider to adjust preference between maximum *Power* and minimum *Time*
+- **Dynamic Path Highlighting**: Selected paths are highlighted in both visualizations with bolder colors
 
 ## Live Demo
 
-Once deployed, you can interact with the dashboard to:
-1. View all 21 possible paths from Node 1 to Node 8
-2. See which 6 paths are Pareto-optimal
-3. Use the slider to select paths based on your preference for power vs. time
-4. Watch the network diagram update to show the selected path in bold
-
-## Deployment Instructions
-
-### Deploy to Netlify (Easiest)
-
-1. **Drag & Drop Method**:
-   - Go to [Netlify](https://app.netlify.com/)
-   - Sign up or log in
-   - Drag and drop the `network-optimizer.html` file (rename it to `index.html` first)
-   - Your site will be live instantly!
-
-2. **GitHub + Netlify Method**:
-   - Create a new repository on GitHub
-   - Upload this project
-   - Connect your GitHub repo to Netlify
-   - Netlify will auto-deploy on every push
-
-### Deploy via GitHub Pages
-
-1. Create a new repository on GitHub
-2. Upload `network-optimizer.html` and rename it to `index.html`
-3. Go to Settings → Pages
-4. Select your branch and click Save
-5. Your site will be available at `https://yourusername.github.io/repo-name/`
+You can interact with the dashboard to:
+1. View all 4 possible paths from Node 1 to Node 8
+2. See which 3 paths are Pareto-optimal (paths where no other path offers both more *Power* AND less *Time*)
+3. Use the slider to select paths based on your preference for *Power* vs. *Time*
+4. Watch the network diagram update to show the selected path highlighted
 
 ## Technical Details
 
 ### Network Structure
 
 The network consists of 8 nodes with the following properties:
-- **Node 1** 🍄: Time: 5, Power: 5 (Start)
-- **Node 2** 🐫: Time: 7, Power: 5
-- **Node 3** ☁️: Time: 8, Power: 4
-- **Node 4** 👨: Time: 4, Power: 6
-- **Node 5** 🌲: Time: 6, Power: 8
-- **Node 6** 🌸: Time: 8, Power: 6
-- **Node 7** 🐟: Time: 7, Power: 6
-- **Node 8** 🚧: Time: 10, Power: 2 (End)
+- **Node 1** 🍄: *Time*: 5, *Power*: 5 (Start)
+- **Node 2** 🐫: *Time*: 7, *Power*: 5
+- **Node 3** ☁️: *Time*: 8, *Power*: 4
+- **Node 4** 👨: *Time*: 4, *Power*: 6
+- **Node 5** 🌲: *Time*: 6, *Power*: 8
+- **Node 6** 🌸: *Time*: 8, *Power*: 6
+- **Node 7** 🐟: *Time*: 7, *Power*: 6
+- **Node 8** 🚧: *Time*: 10, *Power*: 2 (End)
 
 ### Algorithm
 
-1. **Path Finding**: DFS algorithm finds all valid paths from Node 1 to Node 8
-2. **Metric Calculation**: Each path's total time and power are calculated by summing node values
-3. **Pareto Optimization**: A path is Pareto-optimal if no other path has both higher power AND lower time
-4. **Path Selection**: The slider uses a weighted score to select the best Pareto path based on user preference
+1. **Path Finding with Memoization**: DFS algorithm finds all valid paths from Node 1 to Node 8. Memoization stores previously computed subpaths to avoid redundant calculations, improving efficiency from exponential to O(N+E) complexity for the graph traversal.
+2. **Metric Calculation**: Each path's total *Time* and *Power* are calculated by summing the node values along the path.
+3. **Pareto Optimization**: A path is Pareto-optimal if no other path has both higher *Power* AND lower *Time*. In other words, a path is on the Pareto frontier if it is not dominated by any other path.
+4. **Path Selection**: The slider uses a weighted score to select the best Pareto-optimal path based on user preference between *Power* and *Time*.
 
-### Files
+## Videos Used in Blog Posts
 
-- `network-optimizer.html` - Single-file application (rename to `index.html` for deployment)
-- `README.md` - This file
-
-## Customization
-
-You can easily customize the network by editing the JavaScript in the HTML file:
-
-- **Nodes**: Modify the `nodes` array to change properties, icons, or colors
-- **Edges**: Update the `edges` array to change connections
-- **Colors**: Change the color scheme in the CSS section
-- **Metrics**: Adjust how power and time are calculated in the `calculatePathMetrics` function
-
-## Browser Compatibility
-
-Works in all modern browsers:
-- Chrome/Edge (recommended)
-- Firefox
-- Safari
-- Opera
+The code to replicate the videos used in the blog posts is saved in the `Videos` folder. 
+The videos were created using the Python package Manim. 
 
 ## License
 
-Free to use and modify for any purpose.
+Free to use and modify for any purpose. Please cite this GitHub repository.
