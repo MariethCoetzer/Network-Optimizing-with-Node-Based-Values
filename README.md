@@ -4,7 +4,7 @@
 
 An interactive dashboard for visualizing and optimizing paths through a directed acyclic graph (DAG) where the optimization is based on node values rather than edge costs. This tool finds all possible paths from Node 1 to Node 8 using depth-first search with memoization, identifies Pareto-optimal paths based on *Power* and *Time* metrics, and provides an interactive slider to explore different path preferences.
 
-**Link to deployed website:** [[Placeholder](https://mariethcoetzer.github.io/Network-Optimizing-with-Node-Based-Values/)]
+[**Link to deployed website**(https://mariethcoetzer.github.io/Network-Optimizing-with-Node-Based-Values/)]
 
 For detailed explanations of the path-finding algorithm and Pareto optimization approach, see the corresponding blog posts:
 - [Network Optimizing with Node-Based Values – Memoization](Placeholder for link)
@@ -42,9 +42,9 @@ The network consists of 8 nodes with the following properties:
 - **Node 7** 🐟: *Time*: 7, *Power*: 6
 - **Node 8** 🚧: *Time*: 10, *Power*: 2 (End)
 
-### Algorithm
+### Algorithm and Optimization
 
-1. **Path Finding with Memoization**: DFS algorithm finds all valid paths from Node 1 to Node 8. Memoization stores previously computed subpaths to avoid redundant calculations, improving efficiency from exponential to O(N+E) complexity for the graph traversal.
+1. **Path Finding with Memoization**: DFS algorithm finds all valid paths from Node 1 to Node 8. Memoization stores previously computed subpaths to avoid redundant calculations, improving efficiency from exponential to $O(N+E)$ complexity for the graph traversal.
 2. **Metric Calculation**: Each path's total *Time* and *Power* are calculated by summing the node values along the path.
 3. **Pareto Optimization**: A path is Pareto-optimal if no other path has both higher *Power* AND lower *Time*. In other words, a path is on the Pareto frontier if it is not dominated by any other path.
 4. **Path Selection**: The slider uses a weighted score to select the best Pareto-optimal path based on user preference between *Power* and *Time*.
